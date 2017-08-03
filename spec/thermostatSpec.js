@@ -1,12 +1,20 @@
 describe('Thermostat', function() {
-  var thermostat = new Thermostat;
+  'use strict';
 
-  it('has a temp', function() {
-    expect(thermostat.temp).toEqual(20);
+  var thermostat;
+
+  beforeEach(function() {
+    thermostat = new Thermostat();
   });
 
-  it('has a power saving mode that defaults to true', function() {
-    expect(thermostat.isPowerSavingModeOn).toBe(true);
+  it('has a temp', function() {
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+
+  describe('#isPowerSavingModeOn', function() {
+    it('has a power saving mode that defaults to true', function() {
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    });
   });
 
   describe('tempIncrease', function() {
@@ -58,12 +66,13 @@ describe('Thermostat', function() {
   describe('#changePowerSavingMode', function() {
     it('can turn PowerSavingMode off', function() {
       thermostat.changePowerSavingMode();
-      expect(thermostat.isPowerSavingModeOn).toEqual(false);
+      expect(thermostat.isPowerSavingModeOn()).toEqual(false);
     });
 
     it('can turn PowerSavingMode on', function() {
       thermostat.changePowerSavingMode();
-      expect(thermostat.isPowerSavingModeOn).toEqual(true);
+      thermostat.changePowerSavingMode();
+      expect(thermostat.isPowerSavingModeOn()).toEqual(true);
     });
   });
 
