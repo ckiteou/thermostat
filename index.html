@@ -8,23 +8,32 @@
     <title>Thermostat</title>
   </head>
   <body>
-    <section>
+    <div class="left-container">
       <h1 id="temperature"></h1>
-    </section>
-    <section>
-      <h1>Current temperature: <span id="current-temperature"></span></h1>
-      <form id="select-city">
-        <input id="current-city" type="text" placeholder="Enter a city"></input>
-        <input type="submit"></input>
-      </form>
-    </section>
-      <p>
-        <button id="temperature-up">+</button>
-        <button id="temperature-down">-</button>
-        <button id="temperature-reset">reset</button>
-        Power saving mode is <span id="power-saving-status">on</span>
-        <button id="powersaving-on-off">PSM on/off</button>
-      </p>
+      <div class="temperature-increments">
+        <p>
+          <button id="temperature-up">+</button>
+          <button id="temperature-down">-</button>
+          <button id="temperature-reset">reset</button>
+        </p>
+      </div>
+      <div class="world-temperature">
+        <h2>Current temperature for</h2>
+        <form id="select-city">
+          <input id="current-city" type="text" placeholder="Enter a city"></input>
+          <input id="current-city-submit" type="submit" name="submit"></input>
+        </form>
+        <h2 id="semi-colon">:</h2>
+        <h2 id="current-temperature"></h2>
+      </div>
+      <h2 id="power-saving-mode">Power saving mode is <span id="power-saving-status">on</span></h2>
+      <button id="powersaving-on-off">PSM on/off</button>
+    </div>
+    <div class="right-container">
+      <h1>degrees</h1>
+    </div>
+  </div>
+
       <script>
       $(document).ready(function() {
         var thermostat = new Thermostat();
@@ -42,7 +51,7 @@
          var token = '&appid=442a2cfb8fe10d09699b6d58aaf90f57';
          var units = '&units=metric';
          $.get(url + token + units, function(data) {
-           $('#current-temperature').text(data.main.temp);
+           $('#current-temperature').text(Math.round(data.main.temp));
           })
          }
 

@@ -1,3 +1,24 @@
+html {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+p, h1, h2, form, button {
+  margin: 6px 0;
+  padding: 10 0;
+}
+
+body {
+  position: relative;
+  top: 25%;
+  height: 300px;
+  border:  1px solid black;
+}
+
+div {
+  box-sizing: border-box;
+}
+
 .low {
   color: green;
 }
@@ -9,3 +30,97 @@
 .high {
   color: red;
 }
+
+#temperature {
+  font-size: 100px;
+}
+
+.left-container {
+  position: relative;
+  float: left;
+  width: 60%;
+  text-align: right;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.right-container {
+  position: relative;
+  float: right;
+  width: 40%;
+  text-align: left;
+  height: 100%;
+  padding-left: 10px;
+  background-color: black;
+}
+
+.right-container h1 {
+  transform: rotate(90deg);
+  transform-origin: left top;
+  position: absolute;
+  font-size: 74px;
+  left: 82px;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  top:9px;
+}
+
+button:focus, input { outline:0; }
+
+button#temperature-up,
+button#temperature-down,
+button#temperature-reset {
+  border: none;
+  font-size: 30px;
+}
+
+button#temperature-up:hover,
+button#temperature-down:hover,
+button#temperature-reset:hover {
+  color: grey;
+}
+
+.world-temperature h2, form, input {
+  display: inline-block;
+}
+
+.world-temperature, #power-saving-mode {
+  margin-right: 8px;
+}
+
+input#current-city {
+  position: relative;
+  top: -2px;
+  height: 18px !important;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  padding: 0 5px;
+}
+
+input[type=submit], button#powersaving-on-off {
+  all: unset;
+  position: relative;
+  top: -3px;
+  font-size: 12px;
+  border: 1px solid lightgrey;
+  font-family: sans-serif;
+  font-size: bolder;
+  margin: 0 8px 0 0;
+  font-weight: bold;
+  padding: 2px 4px ;
+  border-radius: 15px;
+  color: grey;
+}
+
+button#powersaving-on-off {
+  margin-top: 7px;
+}
+
+input[type=submit]:hover,
+button#powersaving-on-off:hover {
+  color: white;
+  background-color: black;
+}
+
+h2#semi-colon { margin-right: 5px; }
